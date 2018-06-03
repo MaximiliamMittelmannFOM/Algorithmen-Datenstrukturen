@@ -41,6 +41,13 @@ hs_err_pid*
 .idea/**/uiDesigner.xml
 .idea/**/misc.xml
 .idea/**/vcs.xml
+.idea/**/modules.xml
+
+# eclipse-files
+*.classpath
+*.project
+*.bin.*
+
 
 # Gradle:
 .idea/**/gradle.xml
@@ -108,3 +115,4 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+/bin/
