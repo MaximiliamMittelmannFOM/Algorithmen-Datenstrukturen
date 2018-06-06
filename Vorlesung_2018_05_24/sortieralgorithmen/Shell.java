@@ -2,6 +2,6 @@ package sortieralgorithmen;
 
 public class Shell {
 	
-	aus
+	//Noch nicht implementiert.
 
 }

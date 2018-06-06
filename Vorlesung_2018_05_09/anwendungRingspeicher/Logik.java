@@ -1,11 +1,13 @@
 package anwendungRingspeicher;
 
+import structures.Ring;
+
 public class Logik {
 	
 	public static void main(String[] args) {
 		int anz_durchlaeufe = 10;
 		
-		Ringspeicher ring = new Ringspeicher();
+		Ring ring = new Ring();
 		
 		for (int j = 1; j <= anz_durchlaeufe; j++) {
 			for (int i = 1; i <= j; i++) {

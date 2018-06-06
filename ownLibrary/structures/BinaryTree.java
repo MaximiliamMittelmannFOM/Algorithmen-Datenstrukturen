@@ -26,4 +26,6 @@ public class BinaryTree {
 	public TreeNode insert(Node t) {
 		return insert((TreeNode) t);
 	}
+	
+	//Nicht vollständig. Löschen implementieren?
 }

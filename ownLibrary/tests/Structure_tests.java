@@ -10,6 +10,7 @@ public class Structure_tests {
 		test_list();
 		test_stack();
 		test_queue();
+		test_ring();
 		System.out.println("Test done!");
 	}
 	
@@ -183,5 +184,65 @@ public class Structure_tests {
 		for (int i = 0; i < estimated.length; i++) {
 			test_this("extended Queue-Item is "+estimated[i],q1.dequeue().key,estimated[i]);
 		}
+			
+	}
+	
+	public static void test_ring() {
+		Ring ring = new Ring();
+		ring.insert(1);
+		ring.insert(2);
+		ring.insert(3);
+		ring.insert(4);
+		ring.insert(5);
+		ring.insert(6);
+		ring.insert(7);
+		ring.insert(8);
+		ring.insert(9);
+		
+		test_this("Ring has value 1",ring.has_value(1));
+		test_this("Ring has value 2",ring.has_value(2));
+		test_this("Ring has value 3",ring.has_value(3));
+		test_this("Ring has value 4",ring.has_value(4));
+		test_this("Ring has value 5",ring.has_value(5));
+		test_this("Ring has value 6",ring.has_value(6));
+		test_this("Ring has value 7",ring.has_value(7));
+		test_this("Ring has value 8",ring.has_value(8));
+		test_this("Ring has value 9",ring.has_value(9));
+		
+		ring.delete_first(1);
+		ring.delete_first(4);
+		ring.delete_first(5);
+		ring.delete_first(9);
+		
+		test_this("Ring has not value 1",!ring.has_value(1));
+		test_this("Ring has value 2",ring.has_value(2));
+		test_this("Ring has value 3",ring.has_value(3));
+		test_this("Ring has not value 4",!ring.has_value(4));
+		test_this("Ring has not value 5",!ring.has_value(5));
+		test_this("Ring has value 6",ring.has_value(6));
+		test_this("Ring has value 7",ring.has_value(7));
+		test_this("Ring has value 8",ring.has_value(8));
+		test_this("Ring has not value 9",!ring.has_value(9));
+		
+		ring.insert(1);
+		ring.insert(2);
+		ring.insert(3);
+		ring.insert(4);
+		ring.insert(5);
+		ring.insert(6);
+		ring.insert(7);
+		ring.insert(8);
+		ring.insert(9);
+		
+		test_this("Ring has value 1 once", ring.count(1), 1);
+		test_this("Ring has value 2 twice", ring.count(2), 2);
+		test_this("Ring has value 3 twice", ring.count(3), 2);
+		test_this("Ring has value 4 once", ring.count(4), 1);
+		test_this("Ring has value 5 once", ring.count(5), 1);
+		test_this("Ring has value 6 twice", ring.count(6), 2);
+		test_this("Ring has value 7 twice", ring.count(7), 2);
+		test_this("Ring has value 8 twice", ring.count(8), 2);
+		test_this("Ring has value 9 once", ring.count(9), 1);
+		
 	}
 }

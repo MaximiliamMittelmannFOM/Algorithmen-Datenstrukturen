@@ -24,8 +24,8 @@ public class List {
 	public Node insert_after(int key, Node prevNode) {
 		return insert_after(new Node(key), prevNode);
 	}
-	public void insert(int val) {
-		insert_after(val, head);
+	public Node insert(int val) {
+		return insert_after(val, head);
 	}
 	
 	public Node delete_next(Node n) {

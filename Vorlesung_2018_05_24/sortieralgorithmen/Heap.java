@@ -2,6 +2,6 @@ package sortieralgorithmen;
 
 public class Heap {
 	
-	aus
-
+	//Noch nicht implementiert. Überhaupt relevant?
+	
 }

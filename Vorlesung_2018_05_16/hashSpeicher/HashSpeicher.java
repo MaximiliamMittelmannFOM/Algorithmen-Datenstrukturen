@@ -1,6 +1,7 @@
 package hashSpeicher;
 
 public class HashSpeicher {
+	//NICHT VOLLSTÄNDIG
 	private class List {
 		private class Node {
 			String key;
