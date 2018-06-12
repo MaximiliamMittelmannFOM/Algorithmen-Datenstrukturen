@@ -72,6 +72,24 @@ public class Test {
 		array1 = unsArray.clone();
 		Quick.sortiere(array1);
 		gibAus(array1);
+		
+		
+		System.out.println("\n- SimpleHeap-Sort -");
+		System.out.print("zu Sortierendes Array: ");
+		gibAus(unsArray);
+		System.out.print("Sortiert:              ");
+		array1 = unsArray.clone();
+		Heap.sortiereSimpel(array1);
+		gibAus(array1);
+		
+		
+		System.out.println("\n- downheap SimpleHeap-Sort -");
+		System.out.print("zu Sortierendes Array: ");
+		gibAus(unsArray);
+		System.out.print("Sortiert:              ");
+		array1 = unsArray.clone();
+		Heap.sortiereSimpel(array1);
+		gibAus(array1);
 	}
 	
 	

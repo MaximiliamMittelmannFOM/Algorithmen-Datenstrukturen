@@ -5,12 +5,15 @@ import structures.*;
 public class Structure_tests {
 	
 	public static void main(String[] args) {
+		
 		System.out.println("Test started!");
 		test_node();
 		test_list();
 		test_stack();
 		test_queue();
 		test_ring();
+		test_binaryTree();
+		test_simpleHeap();
 		System.out.println("Test done!");
 	}
 	
@@ -243,6 +246,104 @@ public class Structure_tests {
 		test_this("Ring has value 7 twice", ring.count(7), 2);
 		test_this("Ring has value 8 twice", ring.count(8), 2);
 		test_this("Ring has value 9 once", ring.count(9), 1);
+	}
+	
+	public static void test_binaryTree() {
+		BinaryTree tree = new BinaryTree();
+		int[] estimated = new int[6];
 		
+		test_this("Tree is empty",tree.isEmpty());
+		tree.insert(8);
+		test_this("Tree is not empty",!tree.isEmpty());
+		tree.insert(3);
+		tree.insert(2);
+		tree.insert(6);
+		tree.insert(9);
+		tree.insert(1);
+		tree.insert(4);
+		tree.insert(5);
+		tree.insert(7);
+		
+		tree.delete(4);
+		tree.delete(2);
+		tree.delete(7);
+		
+		//tree.print();
+		
+		estimated[0] = 1;
+		estimated[1] = 3;
+		estimated[2] = 5;
+		estimated[3] = 6;
+		estimated[4] = 8;
+		estimated[5] = 9;
+		
+		Stack stack = tree.toStack();
+		
+		for (int i = 0; i < estimated.length; i++) {
+			test_this("Tree is ordered ",stack.pop().key,estimated[i]);
+		}
+		
+		
+	}
+	
+	public static void test_simpleHeap() {
+		SimpleHeap heap = new SimpleHeap(10);
+		int[] estimated = new int[9];
+		
+		test_this("Heap is empty",heap.isEmpty());
+		
+		heap.insert(5);
+		
+		test_this("Heap is not empty",!heap.isEmpty());
+		
+		heap.insert(9);
+		heap.insert(7);
+		heap.insert(3);
+		heap.insert(4);
+		heap.insert(8);
+		heap.insert(6);
+		heap.insert(1);
+		heap.insert(2);
+		
+		//heap.print();
+		
+		estimated[0] = 1;
+		estimated[1] = 2;
+		estimated[2] = 3;
+		estimated[3] = 4;
+		estimated[4] = 5;
+		estimated[5] = 6;
+		estimated[6] = 7;
+		estimated[7] = 8;
+		estimated[8] = 9;
+		
+		for (int i = 0; i < estimated.length; i++) {
+			test_this("simple Heap is ordered ",heap.removeRoot(),estimated[i]);
+		}
+		
+		test_this("Heap is now empty",heap.isEmpty());
+		
+		
+		for (int j = 10; j > 0; j--) {
+			for (int i = 0; i < 10; i++) {
+				heap.insert(j*10 - i);
+			}
+		}
+		
+		for (int i = 1; !heap.isEmpty(); i++) {
+			test_this("simple Heap is ordered ",heap.removeRoot(),i);
+		}
+		
+		for (int j = 10; j > 0; j--) {
+			for (int i = 0; i < 10; i++) {
+				heap.insert(j*10 - i);
+			}
+		}
+		
+		SimpleStack stack = heap.toStack();
+		
+		for (int i = 1; !heap.isEmpty(); i++) {
+			test_this("simple Heap is ordered ",stack.pop(),i);
+		}
 	}
 }

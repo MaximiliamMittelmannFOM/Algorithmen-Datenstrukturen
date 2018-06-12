@@ -36,9 +36,9 @@ public class TuermeVonHanoi {
 			}
 			show(t1,t2);
 			count = buffer.pop().key;
-			t3 = buffer.pop().content;
-			t2 = buffer.pop().content;
-			t1 = buffer.pop().content;
+			t3 = buffer.pop().value;
+			t2 = buffer.pop().value;
+			t1 = buffer.pop().value;
 			
 			if (buffer.isEmpty()) break;
 			show(t1, t2);

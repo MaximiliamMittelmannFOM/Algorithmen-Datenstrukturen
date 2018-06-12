@@ -3,13 +3,13 @@ package structures;
 public class Node {
 	
 	public int key;
-	public String content;
+	public String value;
 
 	public Node next;
 	
 	public Node (int k, String c, Node n) {
 		key = k;
-		content = c;
+		value = c;
 		next = n;
 	}
 	
@@ -35,19 +35,23 @@ public class Node {
 	
 	public boolean equals(Node n, String usingVariables) {
 		return (usingVariables.contains("all") || usingVariables.contains("key")     ? this.key == n.key              : true)
-			&& (usingVariables.contains("all") || usingVariables.contains("content") ? this.content.equals(n.content) : true);
+			&& (usingVariables.contains("all") || usingVariables.contains("content") ? this.value.equals(n.value) : true);
 	}
 	
 	public Node copyValuesFrom(Node n, String usingVariables) {
 		if (usingVariables.contains("all") || usingVariables.contains("key")) {this.key = n.key;}
-		if (usingVariables.contains("all") || usingVariables.contains("content")) {this.content = n.content;}
+		if (usingVariables.contains("all") || usingVariables.contains("content")) {this.value = n.value;}
 		return this;
 	}
 	
 	public Node reset() {
 		key = -1;
-		content = "";
+		value = "";
 		
 		return this;
+	}
+	
+	public String toString() {
+		return "Node:(key:"+key+";value"+value+")";
 	}
 }

@@ -28,6 +28,9 @@ public class List {
 		return insert_after(val, head);
 	}
 	
+	public Node delete_next() {
+		return delete_next(head);
+	}
 	public Node delete_next(Node n) {
 		Node temp = n.next;
 		n.next = n.next.next;
